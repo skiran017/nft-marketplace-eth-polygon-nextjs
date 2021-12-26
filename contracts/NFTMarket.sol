@@ -114,6 +114,8 @@ contract NFTMarket is ReentrancyGuard {
         for (uint256 i = 0; i < itemCount; i++) {
             if (idToMarketItem[i + 1].owner == address(0)) {
                 uint256 currentId = i + 1;
+                // uint256 currentId = idToMarketItem[i + 1].itemId;
+
                 MarketItem storage currentItem = idToMarketItem[currentId];
                 items[currentIndex] = currentItem;
                 currentIndex += 1;
@@ -137,8 +139,8 @@ contract NFTMarket is ReentrancyGuard {
         MarketItem[] memory items = new MarketItem[](itemCount);
         for (uint256 i = 0; i < totalItemCount; i++) {
             if (idToMarketItem[i + 1].owner == msg.sender) {
-                // uint256 currentId = i + 1;
-                uint256 currentId = idToMarketItem[i + 1].itemId;
+                uint256 currentId = i + 1;
+                // uint256 currentId = idToMarketItem[i + 1].itemId;
                 MarketItem storage currentItem = idToMarketItem[currentId];
                 items[currentIndex] = currentItem;
                 currentIndex += 1;
@@ -162,8 +164,8 @@ contract NFTMarket is ReentrancyGuard {
         MarketItem[] memory items = new MarketItem[](itemCount);
         for (uint256 i = 0; i < totalItemCount; i++) {
             if (idToMarketItem[i + 1].seller == msg.sender) {
-                // uint256 currentId = i + 1;
-                uint256 currentId = idToMarketItem[i + 1].itemId;
+                uint256 currentId = i + 1;
+                // uint256 currentId = idToMarketItem[i + 1].itemId;
                 MarketItem storage currentItem = idToMarketItem[currentId];
                 items[currentIndex] = currentItem;
                 currentIndex += 1;
